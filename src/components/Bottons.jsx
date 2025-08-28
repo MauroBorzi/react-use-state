@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const languages = [
   {
     id: 1,
@@ -32,8 +34,13 @@ const languages = [
 ];
 
 const Bottons = () => {
+
+  const [selectedLanguage, setselectedLanguage] = useState(languages[0])
+
+
   return (
-    <div className="text-center mt-5">
+    <div className="container mt-5">
+      <h2>Learn Web development</h2>
       {languages.map((language) => {
         return (
           <button type="button" className="btn btn-primary m-2">
@@ -41,7 +48,15 @@ const Bottons = () => {
           </button>
         )
       })}
-    </div>
+
+
+      <div className="card w-50">
+        <div className="card-body">
+          <h5 className="card-title">{selectedLanguage.title}</h5>
+          <p className="card-text">{selectedLanguage.description}</p>
+        </div>
+      </div>
+    </div >
   )
 }
 
