@@ -38,17 +38,24 @@ const Bottons = () => {
   const [selectedLanguage, setselectedLanguage] = useState(languages[0])
 
 
-  return (
-    <div className="container mt-5">
-      <h2>Learn Web development</h2>
-      {languages.map((language) => {
-        return (
-          <button type="button" className="btn btn-primary m-2">
-            {language.title}
-          </button>
-        )
-      })}
+  const ManageClickLanguage = (Language) => {
+    setselectedLanguage(Language)
+  }
 
+  return (
+    <div className="container mt-4">
+      <h2>Learn Web development</h2>
+      <div className="mb-5">
+        {languages.map((Language) => (
+          <button
+            key={Language.id}
+            className={`btn btn-primary mt-5 me-2 ${selectedLanguage.id === Language.id ? 'btn-warning' : ''}`}
+            onClick={() => ManageClickLanguage(Language)}
+          >
+            {Language.title}
+          </button>
+        ))}
+      </div>
 
       <div className="card w-50">
         <div className="card-body">
@@ -56,7 +63,7 @@ const Bottons = () => {
           <p className="card-text">{selectedLanguage.description}</p>
         </div>
       </div>
-    </div >
+    </div>
   )
 }
 
