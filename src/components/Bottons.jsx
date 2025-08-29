@@ -49,7 +49,7 @@ const Bottons = () => {
         {languages.map((Language) => (
           <button
             key={Language.id}
-            className={`btn btn-primary mt-5 me-2 ${selectedLanguage.id === Language.id ? 'btn-warning' : ''}`}
+            className={`btn mt-5 me-2 ${selectedLanguage.id === Language.id ? 'btn-warning' : 'btn-primary'}`}
             onClick={() => ManageClickLanguage(Language)}
           >
             {Language.title}
